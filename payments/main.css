@@ -49,3 +49,18 @@ section {
         width: 100%;
     }
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#amount {
+    margin: 10px;
+    height: 30px;
+    width: 100px;
+    border: 2px solid rgb(82, 128, 251);
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    outline: none;
+}
