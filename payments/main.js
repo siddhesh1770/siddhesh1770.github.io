@@ -25,7 +25,16 @@ function checkLink() {
     }
 }
 
+function setAmount() {
+    console.log("hello")
+    const params = new URLSearchParams(window.location.search);
+    const am = params.get("am");
+    console.log(am);
+    document.getElementById("amount").value = am;
+}
+
 document.getElementById("amount").addEventListener("keyup", changeLink);
 document.getElementById("upi").addEventListener("click", checkLink);
+setAmount();
 
 // upi://pay?pa=paytmqr281005050101h17vvz9lx3o2@paytm&pn=Paytm%20Merchant&mc=5499&mode=02&orgid=000000&paytmqr=281005050101H17VVZ9LX3O2&sign=MEQCIGQBQVpl0pgTPT8DxWdzWlBJLoEKGo+7XjGTa+qFDRRaAiAaOcO/R4lQueZ/dxFrRGC9G7TfNdv+gE3NXdnaoGAODA==
