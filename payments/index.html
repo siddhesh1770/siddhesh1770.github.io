@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/payments/main.css">
-</head>
-<body>
-    <section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment To Siddhesh Patil</title>
+    <link rel="stylesheet" href="/payments/main.css" />
+  </head>
+  <body>
+    <div class="main">
+      <section>
         <!-- Intro Block -->
         <div>
-            <p style="font-size: 30px;"><strong>Pay using any payment method from below.</strong></p>
+          <p style="font-size: 30px">
+            <strong>Enter amount below.</strong>
+          </p>
         </div>
-         <!-- Links Block -->
-         <div class="links-section"> 
-             <div class="sub-sec">
-                 <input type="number" name="amount" id="amount" >
-             </div>
-             <div class="sub-sec">
-                <a id="upi" href="#">
-                    <div class="inner-link">
-                        UPI
-                    </div>
-                </a>
-             </div>
-             <div class="sub-sec">
-                <a href="https://paytm.me/a5-jjvI">
-                    <div class="inner-link">
-                        Paytm
-                    </div>
-                </a>
-             </div>
-             <div class="sub-sec">
-                <a href="https://paypal.me/siddhesh1770">
-                    <div class="inner-link">
-                        <img src="/payments/download.png" alt="">
-                        Paypal
-                    </div>
-                </a>
-             </div>
-             <!-- <div class="sub-sec">
-                <a href="">
-                    <div class="inner-link">
-
-                        My First Link
-                    </div>
-                </a>
-             </div> -->
-         </div>
-    </section>
+        <!-- Links Block -->
+        <div class="links-section">
+          <div class="sub-sec">
+            <input oninput="generateQRandSet()" type="number" name="amount" id="amount" />
+          </div>
+          <div class="sub-sec">
+            <a id="upi" href="#">
+              <div class="inner-link">UPI</div>
+            </a>
+          </div>
+          <div class="sub-sec">
+            <a href="https://paytm.me/a5-jjvI">
+              <div class="inner-link">Paytm</div>
+            </a>
+          </div>
+          
+          <!-- <div class="sub-sec">
+                    <a href="">
+                        <div class="inner-link">
+                            My First Link
+                        </div>
+                    </a>
+                 </div> -->
+        </div>
+      </section>
+      <div id="upiqr"></div>
+    </div>
+    <script src="/payments//qrcode.js"></script>
+    <script src="/payments/qrcode.min.js"></script>
     <script src="/payments/main.js"></script>
-</body>
+    <script>
+        function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+      function generateQRandSet() {
+          removeAllChildNodes(document.getElementById("upiqr"));
+        var QR_CODE = new QRCode("upiqr", {
+          width: 300,
+          height: 300,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H,
+        });
+        const amount = document.getElementById("amount").value;
+        const url = `upi://pay?pa=sidpatil1770-5@oksbi&pn=Siddhesh Patil&am=${amount}.00&cu=INR&aid=uGICAgIDVjYiKWw`
+        QR_CODE.makeCode(url);
+        if (amount == "") {
+            removeAllChildNodes(document.getElementById("upiqr"));
+        }
+      }
+    </script>
+  </body>
 </html>
-<!-- 
-upi://pay?pn=Siddhesh%20Ramchandra%20Patil&pa=7208841770@paytm&cu=INR
-
- -->
