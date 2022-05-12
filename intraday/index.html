@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/intraday/main.css">
+    <title>Intraday Entry</title>
+  </head>
+  <body>
+    <div class="main">
+      <div>
+        <label for="date">Date : </label>
+        <input type="date" id="date" />
+      </div>
+      <div class="">
+        <label for="stocks">Enter Stocks Name seperated by "," </label>
+        <input type="text" id="stocks" />
+      </div>
+      <div class="">
+        <label for="brokerFees">Enter brokerFees : </label>
+        <input type="number" id="brokerFees" />
+      </div>
+      <div class="">
+        <label for="nonBrokerFees">Enter nonBrokerFees : </label>
+        <input type="number" id="nonBrokerFees" />
+      </div>
+      <div class="">
+        <label for="netPl">Enter Todays netPL : </label>
+        <input type="number" id="netPl" />
+      </div>
+      <div class="">
+        <label for="grossPl">
+          Enter Todays grossPL : 
+        </label>
+        <input type="number" id="grossPl" />
+      </div>
+      <div class="">
+        <label for="turnover">Enter Turnover : </label>
+        <input type="number" id="turnover" />
+      </div>
+      <button onclick="hello()">Submit</button>
+    </div>
+    <br><br><br>
+    <div class="setPWD">
+      <button id="submit" onclick="setPassword()">Set Password</button>
+    </div>
+    <script src="/intraday/index.js"></script>
+  </body>
+</html>
