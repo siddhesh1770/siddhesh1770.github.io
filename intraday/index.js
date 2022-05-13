@@ -20,17 +20,15 @@ async function hello() {
     }
     stocks.push(temp);
   });
-  const brokerFees = Number(document.getElementById("brokerFees").value);
-  const grossPl = Number(document.getElementById("grossPl").value);
+  const charges = Number(document.getElementById("charges").value);
   const netPl = Number(document.getElementById("netPl").value);
+  const grossPl = netPl + charges;
   const turnover = Number(document.getElementById("turnover").value);
   const url = "https://api-siddheshpatil.herokuapp.com/singleboard/api/auth/contractNoteEntry"
-  const nonBrokerFees = Number(document.getElementById("nonBrokerFees").value);
   const data = {
     dateIST: dateIST,
     stocks: stocks,
-    brokerFees: brokerFees,
-    nonBrokerFees: nonBrokerFees,
+    charges: charges,
     grossPl: grossPl,
     netPl: netPl,
     turnover: turnover,
