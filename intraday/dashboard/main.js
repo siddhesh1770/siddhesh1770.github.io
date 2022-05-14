@@ -18,11 +18,20 @@ async function hello() {
     alert(data.message);
     return;
   }
+  const totalProfitDays = document.getElementById("totalProfitDays");
+  const totalLossDays = document.getElementById("totalLossDays");
   const totalDays = document.getElementById("totalDays");
   const totalCharges = document.getElementById("totalCharges");
   const totalTurnover = document.getElementById("totalTurnover");
   const netPl = document.getElementById("netPl");
   const grossPl = document.getElementById("grossPl");
+  const averagePl = document.getElementById("averagePl");
+  const firstTrade = document.getElementById("firstTrade");
+  const lastTrade = document.getElementById("lastTrade");
+  const totalProfitDaysCount = data.data.profits.length;
+  const totalLossDaysCount = data.data.lossess.length;
+  averagePl.innerHTML = `
+  <h3>Average Profit/Loss: ${data.data.averagePl}</h3>`;
   totalCharges.innerHTML = `
     <h3>Total Charges Paid since day 1 = ${data.data.totalCharges}</h3>`;
   totalTurnover.innerHTML = `
@@ -32,7 +41,15 @@ async function hello() {
   grossPl.innerHTML = `
     <h3>Gross Profit/Loss since day 1 = ${data.data.totalGrossPl}</h3>`;
   totalDays.innerHTML = `
-    <h3>Total Days = ${data.data.totalDays}</h3>`;
+    <h3>Total Days of trading = ${data.data.totalDays}</h3>`;
+  totalProfitDays.innerHTML = `
+    <h3>Total Profit Days = ${totalProfitDaysCount}</h3>`;
+  totalLossDays.innerHTML = `
+    <h3>Total Loss Days = ${totalLossDaysCount}</h3>`;
+  firstTrade.innerHTML = `
+    <h3>First Trade = ${data.data.firstTrade}</h3>`;
+  lastTrade.innerHTML = `
+    <h3>Last Trade = ${data.data.lastTrade}</h3>`;
   if (data.data.totalNetPl < 0) {
     netPl.style.color = "red";
   } else {
