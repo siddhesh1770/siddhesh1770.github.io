@@ -1,8 +1,23 @@
 async function hello() {
-  const url =
-    "https://api-siddheshpatil.herokuapp.com/singleboard/api/auth/getTotalIntraData";
-  const res = await fetch(url);
+  console.log("hellofromhello")
+  console.log("hellofromhello")
+  const cookie = localStorage.getItem("cookie");
+  const url = `https://api-siddheshpatil.herokuapp.com/singleboard/api/auth/getTotalIntraData`;
+  const raw = {
+    cookie: cookie,
+  }
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(raw),
+  })
   const data = await res.json();
+  if(data.success == false){
+    alert(data.message);
+    return;
+  }
   const totalDays = document.getElementById("totalDays");
   const totalCharges = document.getElementById("totalCharges");
   const totalTurnover = document.getElementById("totalTurnover");
@@ -30,4 +45,15 @@ async function hello() {
   }
 }
 
-hello();
+
+function setCookie() {
+  if (localStorage.getItem("cookie") == null || localStorage.getItem("cookie") == "") {
+    const temp =  prompt("Enter your cookie");
+    localStorage.setItem("cookie", temp);
+    hello();
+    return;
+  }
+  hello();
+}
+
+setCookie();
