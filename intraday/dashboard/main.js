@@ -43,8 +43,18 @@ async function hello() {
   } else {
     grossPl.style.color = "green";
   }
+  createList(data);
 }
 
+function createList(data){
+  const list = document.getElementById("stocksList");
+  data.data.stocks.forEach(element => {
+    const temp = document.createElement("li");
+    temp.innerHTML = `
+    <h3>${element.name} Has been traded ${element.trades} times.</h3>`;
+    list.appendChild(temp);
+  });
+}
 
 function setCookie() {
   if (localStorage.getItem("cookie") == null || localStorage.getItem("cookie") == "") {
