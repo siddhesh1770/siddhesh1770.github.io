@@ -2,7 +2,7 @@ async function hello() {
     console.log("hellofromhello")
     console.log("hellofromhello")
     const tempData = localStorage.getItem("data");
-    if(data || data !== null || data !== undefined) {
+    if(tempData || tempData !== null || tempData !== undefined) {
         const hell786 = JSON.parse(tempData);
         const tempDate = new Date().toISOString().slice(0, 10);
         console.log(tempData)
